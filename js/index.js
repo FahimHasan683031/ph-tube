@@ -23,6 +23,7 @@ const mainHandler = async () =>{
 
 // category post show
 let veryId = 'verify'
+let imgBoxId ='imgBox'
 const categoryPost = async(categoryId,isSort= false) => {
     const res = await fetch(`https://openapi.programming-hero.com/api/videos/category/${categoryId}`)
     const data = await res.json()
@@ -36,10 +37,11 @@ const categoryPost = async(categoryId,isSort= false) => {
         sortPosts = posts.sort((a,b) => b.others.views.slice(0, -1) - a.others.views.slice(0, -1));
         sortPosts.forEach(post => {
             veryId +=2;
+            imgBoxId +=5;
            const div = document.createElement('div');
            div.innerHTML = `
            <div class="  bg-base-100 shadow-xl px-3 pt-5">
-           <figure><img class='rounded-md w-[312px] h-[180px]' src='${post.thumbnail}' alt="Shoes" /></figure>
+           <figure class="relative" id='${imgBoxId}'><img class='rounded-md w-[312px] h-[180px]' src='${post.thumbnail}' alt="Shoes" /></figure>
            <div class=" py-7 flex gap-3">
                <div>
                    <img class="rounded-full w-12 h-12" src='${post.authors[0].profile_picture}' alt="">
@@ -56,6 +58,8 @@ const categoryPost = async(categoryId,isSort= false) => {
        </div>
            `
         postContainer.appendChild(div);
+
+
         //    verify img set
         const veContainer = document.getElementById(veryId);
         if(post.authors[0].verified === true || post.authors[0].verified === ' ' ){
@@ -63,6 +67,19 @@ const categoryPost = async(categoryId,isSort= false) => {
             img.setAttribute('src','images/fi_10629607.jpg')
             img.classList.add('w-7')
             veContainer.appendChild(img)
+        }
+
+
+        // time set 
+        const imgBoxTime = document.getElementById(imgBoxId)
+        if(post.others.posted_date){
+            const dateTime = (new String((post.others.posted_date/60).toFixed(2))).split('.');
+            const div = document.createElement('div');
+            div.innerHTML = `
+                <h2 class=" px-2 py-1 rounded-lg bg-slate-900 inline text-white">${dateTime[0]} hrs ${dateTime[1]} min ago</h2>
+            `
+            div.classList.add('text-white', 'absolute', 'bottom-5', 'right-3')
+            imgBoxTime.appendChild(div)
         }
         
            
@@ -72,10 +89,11 @@ const categoryPost = async(categoryId,isSort= false) => {
         postContainer.innerHTML = '';
         posts.forEach(post => {
             veryId +=2;
+            imgBoxId +=5;
            const div = document.createElement('div');
            div.innerHTML = `
            <div class="  bg-base-100 shadow-xl px-3 pt-5">
-           <figure class="imageContainer"><img class='rounded-md w-[312px] h-[180px]' src='${post.thumbnail}' alt="Shoes" /></figure>
+           <figure class="relative" id='${imgBoxId}'><img class='rounded-md w-[312px] h-[180px]' src='${post.thumbnail}' alt="Shoes" /></figure>
            <div class=" py-7 flex gap-3">
                <div>
                    <img class="rounded-full w-12 h-12" src='${post.authors[0].profile_picture}' alt="">
@@ -101,6 +119,19 @@ const categoryPost = async(categoryId,isSort= false) => {
             img.setAttribute('src','images/fi_10629607.jpg')
             img.classList.add('w-7')
             veContainer.appendChild(img)
+        }
+
+
+        // time set 
+        const imgBoxTime = document.getElementById(imgBoxId)
+        if(post.others.posted_date){
+            const dateTime = (new String((post.others.posted_date/60).toFixed(2))).split('.');
+            const div = document.createElement('div');
+            div.innerHTML = `
+                <h2 class=" px-2 py-1 rounded-lg bg-slate-900 inline text-white">${dateTime[0]} hrs ${dateTime[1]} min ago</h2>
+            `
+            div.classList.add('text-white', 'absolute', 'bottom-5', 'right-3')
+            imgBoxTime.appendChild(div)
         }
         
            
