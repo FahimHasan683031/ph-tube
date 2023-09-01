@@ -11,7 +11,7 @@ const mainHandler = async () =>{
     categories.forEach(element => {
         const tab = document.createElement('div');
         tab.innerHTML = `
-        <a onclick="categoryPost(${element.category_id})" class=" px-4 py-2 rounded-md bg-gray-200">${element.category}</a> 
+        <a onclick="categoryPost(${element.category_id})" class=" cursor-pointer px-4 py-2 rounded-md bg-gray-200">${element.category}</a> 
         `
         tabContainer.appendChild(tab);
         arrId.push(element.category_id)
@@ -27,13 +27,14 @@ let imgBoxId ='imgBox'
 const categoryPost = async(categoryId,isSort= false) => {
     const res = await fetch(`https://openapi.programming-hero.com/api/videos/category/${categoryId}`)
     const data = await res.json()
-
-    const postContainer = document.getElementById('postContainer');
     const posts = data.data;
+    const postContainer = document.getElementById('postContainer');
+    
     console.log(posts)
 
     if(isSort){
         postContainer.innerHTML = '';
+        document.getElementById('noposts').innerText = '';
         sortPosts = posts.sort((a,b) => b.others.views.slice(0, -1) - a.others.views.slice(0, -1));
         sortPosts.forEach(post => {
             veryId +=2;
@@ -87,6 +88,7 @@ const categoryPost = async(categoryId,isSort= false) => {
         
     }else{
         postContainer.innerHTML = '';
+        document.getElementById('noposts').innerText = '';
         posts.forEach(post => {
             veryId +=2;
             imgBoxId +=5;
@@ -133,14 +135,28 @@ const categoryPost = async(categoryId,isSort= false) => {
             div.classList.add('text-white', 'absolute', 'bottom-5', 'right-3')
             imgBoxTime.appendChild(div)
         }
+        console.log(posts.length)
         
+       
            
         });
+        if(posts.length === 0){
+            const nodatacontainer = document.getElementById('noposts');
+            document.getElementById('noposts').innerText = '';
+            const div = document.createElement('div');
+            div.innerHTML = `
+            <img class="mx-auto" src="images/Icon.png" alt="">
+            <h1 class="text-3xl font-bold mt-4">Oops!! Sorry, There is no <br> content here</h1>
+            `
+            div.classList.add('mx-auto', 'text-center', 'mt-36')
+            nodatacontainer.appendChild(div)
+        }
     }
 
-    console.log(posts)
+    // console.log(posts)
    
     // post show
+    // no post massage
     
 }
 mainHandler();
