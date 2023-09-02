@@ -71,7 +71,7 @@ const categoryPost = async(categoryId) => {
         // time set 
         const imgBoxTime = document.getElementById(imgBoxId)
         if(post.others.posted_date){
-            const dateTime = (new String((post.others.posted_date/60).toFixed(2))).split('.');
+            const dateTime = (new String(((post.others.posted_date/60)/60).toFixed(2))).split('.');
             const div = document.createElement('div');
             div.innerHTML = `
                 <h2 class=" px-2 py-1 rounded-lg bg-slate-900 inline text-white">${dateTime[0]} hrs ${dateTime[1]} min ago</h2>
@@ -151,7 +151,7 @@ function sortView (){
         // time set 
         const imgBoxTime = document.getElementById(imgBoxId)
         if(post.others.posted_date){
-            const dateTime = (new String((post.others.posted_date/60).toFixed(2))).split('.');
+            const dateTime = (new String(((post.others.posted_date/60)/60).toFixed(2))).split('.');
             const div = document.createElement('div');
             div.innerHTML = `
                 <h2 class=" px-2 py-1 rounded-lg bg-slate-900 inline text-white">${dateTime[0]} hrs ${dateTime[1]} min ago</h2>
