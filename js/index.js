@@ -163,6 +163,19 @@ function sortView (){
        
            
         });
+         // No post massage
+         if(sortPosts.length === 0){
+            const nodatacontainer = document.getElementById('noposts');
+            document.getElementById('noposts').innerText = '';
+            const div = document.createElement('div');
+            div.innerHTML = `
+            <img class="mx-auto" src="images/Icon.png" alt="">
+            <h1 class="text-3xl font-bold mt-4">Oops!! Sorry, There is no <br> content here</h1>
+            `
+            div.classList.add('mx-auto', 'text-center', 'mt-36')
+            nodatacontainer.appendChild(div)
+        }
+
 
         
 }
