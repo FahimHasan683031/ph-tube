@@ -12,7 +12,7 @@
     <header class="border-b-2 border-gray-200 pb-5 max-w-screen-xl mx-auto mt-6 px-5">
         <div class="flex justify-between">
             <img src="images/Logo.png" alt="">
-            <button class="px-4 py-2 rounded-md text-white bg-red-500 text-base">Home</button>
+            <button id="goHome" class="px-4 py-2 rounded-md text-white bg-red-500 text-base">Home</button>
         </div>
         <div class=" text-center mt-4 block md:hidden">
             
@@ -20,7 +20,7 @@
 
     </header>
     <main>
-        <div class="hero h-48  bg-[url('images/images.jpg')] bg-no-repeat bg-cover">
+        <div class="hero h-60  bg-[url('images/JS-Banner.png')] bg-no-repeat bg-cover ">
             <div class="hero-overlay bg-opacity-60"></div>
             <div class="hero-content text-center text-neutral-content">
               <div class="max-w-md">
@@ -29,25 +29,10 @@
             </div>
           </div>
 
-          <section class="max-w-screen-md mx-auto my-5 pt-5">
-            <h1 class=" text-3xl font-bold text-center my-4">Discuss the scope of <br> var, let, and const</h1>
+          <section class="max-w-screen-md mx-auto my-5 px-10 pt-5">
+            <h1 class=" text-3xl font-bold text-center mt-7 my-4">Discuss the scope of <br> var, let, and const</h1>
             <img class="mx-auto my-4" src="images/sddefault.jpg" alt="">
-            <h1 class="text-2xl font-bold my-4">We always diclayer every variable using the ver let and cont keyword. This every keyword has some own scope behaviour. Now i will discuss about it.  </h1>
-            <h1 class="text-2xl font-bold mt-4">var:</h1>
-            <p class="text-lg text-gray-700">var is an ES5 element. var maintain global and function scope. If we defin any variable using var keyword inside a function we can't access the variable the form outside the function. Var alow hosting thats why we can use any variable before define the variable.</p>
-            <h1 class="text-2xl font-bold mt-4">let:</h1>
-            <p class="text-lg text-gray-700">let is an ES6 element. let maintain block and scope. If we defin any variable using let keyword inside any block scope we can't access the variable the form outside the block scope. Var don't alow hosting thats why we can't use any variable before define the variable.
-            If we use it trough an error.
-            </p>
-            <h1 class="text-2xl font-bold mt-4">const:</h1>
-            <p class="text-lg text-gray-700">const is an ES6 element. const maintain block and scope. If we defin any variable using const keyword inside any block scope we can't access the variable the form outside the block scope. const don't alow hosting thats why we can't use any variable before define the variable.
-            If we use it trough an error.
-            </p>
-          </section>
-          <section class="max-w-screen-md mx-auto my-5 pt-8">
-            <h1 class=" text-3xl font-bold text-center my-4">Discuss the scope of <br> var, let, and const</h1>
-            <img class="mx-auto my-4" src="images/sddefault.jpg" alt="">
-            <h1 class="text-2xl font-bold my-4">We always diclayer every variable using the ver let and cont keyword. This every keyword has some own scope behaviour. Now i will discuss about it.  </h1>
+            <h1 class="text-2xl font-bold mt-7 my-4">We always diclayer every variable using the ver let and cont keyword. This every keyword has some own scope behaviour. Now i will discuss about it.  </h1>
             <h1 class="text-2xl font-bold mt-4">var:</h1>
             <p class="text-lg text-gray-700">var is an ES5 element. var maintain global and function scope. If we defin any variable using var keyword inside a function we can't access the variable the form outside the function. Var alow hosting thats why we can use any variable before define the variable.</p>
             <h1 class="text-2xl font-bold mt-4">let:</h1>
@@ -60,7 +45,29 @@
             </p>
           </section>
 
+          <section class="max-w-screen-md mx-auto px-10 my-5 pt-8">
+            <h1 class=" text-3xl font-bold text-center my-4">cases of null and undefined</h1>
+            <img class="mx-auto  my-4" src="images/01-02-21-undefined-and-null-in-javascript-explained-blog.jpg" alt="">
+            <h1 class="text-2xl font-bold my-4">null and undefined both also primitive data type in JavaScript. But they both has some different won use cases. Now I will discuss about this cases. </h1>
+            <h1 class="text-2xl font-bold mt-4">Null:</h1>
+            <p class="text-lg text-gray-700"> Null is intentional absence of the value. Basically we use null for if we diclayred any variable or object itm valueless we can use set null as a reference its mins the variable hsa no value. when ue access the variable or object item its print null.</p>
+            <h1 class="text-2xl font-bold mt-4">Undefined:</h1>
+            <p class="text-lg text-gray-700">When we defined a nay type of variable or add object item without sate value. The javascript compiler set this variable value bydefault undefined. If we try to access the variable javascript compiler give undefined as value. As same when we try to access any object item which is not exist in the object on this time js compiler return undefined value. </p>
+          </section>
+
+          <section class="max-w-screen-md mx-auto px-10 my-5 pt-8">
+            <h1 class=" text-3xl font-bold text-center my-4">REST API</h1>
+            <img class="mx-auto  my-4" src="images/1_WFBeioYOuRPdG84-PhNjtw.png" alt="">
+            <h1 class="text-2xl font-bold mt-4">REST API:</h1>
+            <p class="text-lg text-gray-700">API means application programming interface and REST means representational state transfer. REST API use for transfer data into different tow layers. As like clint side to server or server to server whatever. In other words, if you want to interact with a computer or system to retrieve information or perform a function, an API helps you communicate what you want to that system so it can understand and fulfill the request.</p>
+          </section>
+
        
     </main>
+    <script>
+      document.getElementById('goHome').addEventListener('click',function(){
+        window.location.href = 'index.html'
+      })
+    </script>
 </body>
 </html>

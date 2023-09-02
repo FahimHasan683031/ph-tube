@@ -15,12 +15,14 @@
     <header class="border-b-2 border-gray-200 pb-5">
         <div class="flex justify-between">
             <img src="images/Logo.png" alt="">
-            <button onclick="sortView()" class="px-4 py-2 rounded-md text-white bg-red-500 text-base hidden md:block">Sort by
+            <button onclick="sortView()"
+                class="px-4 py-2 rounded-md text-white bg-red-500 text-base hidden md:block">Sort by
                 view</button>
-            <button class="px-4 py-2 rounded-md text-white bg-red-500 text-base">Blog</button>
+            <button id="blogPage" class="px-4 py-2 rounded-md text-white bg-red-500 text-base">Blog</button>
         </div>
         <div class=" text-center mt-4 block md:hidden">
-            <button onclick="sortView()" id="sortView" class="  px-4 py-2 rounded-md text-white bg-red-500 text-base">Sort by view</button>
+            <button onclick="sortView()" id="sortView"
+                class="  px-4 py-2 rounded-md text-white bg-red-500 text-base">Sort by view</button>
 
         </div>
 
@@ -36,16 +38,21 @@
         <div id="postContainer" class="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-7">
 
         </div>
-            
+
         <div id="noposts">
-            
+
         </div>
-            
+
 
     </main>
 
 
     <script src="js/index.js"></script>
+    <script>
+        document.getElementById('blogPage').addEventListener('click', function () {
+            window.location.href = 'blog.html';
+        })
+    </script>
 </body>
 
 </html>
